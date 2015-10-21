@@ -5,13 +5,17 @@ from textblob.classifiers import NaiveBayesClassifier
 # Given string text, returns a list of sentences.
 def tokenize(text):
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    return tokenizer.tokenize(text)
+    tokens = tokenizer.tokenize(text)
+    return [token.strip() for token in tokens]
 
 # Given a string sentence, returns a list of words
 # with leading and trailing whitespaces removed.
 def get_words(sentence):
     return sentence.strip().lstrip().split()
 
+# Given a string sentence, returns True iff sentence contains a question mark.
+def is_question_naive(sentence):
+    return sentence.find("?") != -1
 
 
 
@@ -36,6 +40,7 @@ We're supposed to have our next meeting by Friday, October 9th, so it would be a
 How does 6:30pm-7:30pm on Thursday, 10/8 sound for everyone? Is there anything that I can do to help? What are we covering during the meeting?'''
 test_sentences = tokenize(text3)
 
+'''
 train = [(sentence, 'declarative') for sentence in sentences]
 train += [(question, 'interrogative') for question in questions]
 
@@ -47,3 +52,7 @@ blob = TextBlob(text3, classifier=cl)
 for s in blob.sentences:
     print(s)
     print(s.classify())
+'''
+
+for s in test_sentences:
+    print(s, is_question_naive(s))
