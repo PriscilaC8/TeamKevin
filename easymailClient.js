@@ -1,11 +1,11 @@
-$('#pythonBtn').click(function(){
-	var postdata = "hello";
-	JQuery.ajax({
-		type: 'POST',
-		url: 'brains.py',
-		data: postdata,
-		success: function(data,status){alert("status:"+status+", data:"+data)},
-		dataType:'html'
-	});
+/*chrome.browserAction.onClicked.addListener(function (tab){
+	//alert('icon clicked');
+	console.log("Hello");
+	var textarea = document.createElement("textarea");
+	$(textarea).wysiwygEditor();
+});
 
-})
+$(document).ready(function(){
+	console.log("WHAT");
+	$('#textEditor').wysiwygEditor();
+})*/
