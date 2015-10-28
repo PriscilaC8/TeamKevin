@@ -23,3 +23,21 @@ function getSentences(text) {
     }
     return sentenceList;
 }
+
+function getSentenceHTML(sentenceList) {
+    var html = '';
+    while (sentenceList.length > 0) {
+        html += sentenceList.shift();
+        html += '<br>';
+    }
+    return html;
+}
+
+$(document).ready(function() {
+    $('#reformat_button').click(function() {
+        var rawText = $('#raw_text').val();
+        var sentenceList = getSentences(rawText);
+        var sentenceHTML = getSentenceHTML(sentenceList);
+        $('#reformatted_text').html(sentenceHTML);
+    });
+});
