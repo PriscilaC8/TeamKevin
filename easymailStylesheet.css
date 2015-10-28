@@ -2,6 +2,15 @@
     line-height: 200%;
 }
 
+#raw_text {
+    width: 100%;
+}
+
+.content {
+    width: 50%;
+    margin: 25px auto;
+}
+
 .question {
     background-color: yellow;
 }
