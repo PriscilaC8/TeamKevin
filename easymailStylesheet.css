@@ -1,3 +1,7 @@
 body {
     line-height: 200%;
 }
+
+.question {
+    background-color: yellow;
+}
