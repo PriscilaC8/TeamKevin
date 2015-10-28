@@ -1,5 +1,26 @@
 {
-  "manifest_version": 2,
-  "name": "EasyMail",
-  "version": "0.1"
+	"manifest_version": 2,
+	"name": "EasyMail",
+	"version": "0.1",
+	"permissions": [
+		"contextMenus",
+		"<all_urls>",
+		"tabs"
+	],
+	"icons": {
+		"16": "icons/flash16.png",
+		"32": "icons/flash32.png",
+		"128": "icons/flash128.png"
+	},
+	"background":{
+		"scipts": ["context-menu.js"]
+	},
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"js": ["easymailPopup.js"],
+		"css": ["easymailStylesheet.css"]
+	}],
+  "browser_action":{
+    "default_icon": "icons/flash128.png"
+  }
 }

@@ -1,15 +1,3 @@
-/*chrome.browserAction.onClicked.addListener(function (tab){
-	//alert('icon clicked');
-	console.log("Hello");
-	var textarea = document.createElement("textarea");
-	$(textarea).wysiwygEditor();
-});
-
-$(document).ready(function(){
-	console.log("WHAT");
-	$('#textEditor').wysiwygEditor();
-})*/
-
 // Given a string of text, returns a list of sentences contained in the text.
 function getSentences(text) {
     var re = /[\.?!]\s+[A-Z](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
