@@ -17,7 +17,6 @@ def is_question_naive(sentence):
 
 
 
-
 #############
 # Test code #
 
