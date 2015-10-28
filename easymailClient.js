@@ -45,4 +45,6 @@ $(document).ready(function() {
         var sentenceHTML = getSentenceHTML(sentenceList);
         $('#reformatted_text').html(sentenceHTML);
     });
+
+    $('textarea').wysiwygEditor();
 });
