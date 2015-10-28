@@ -1,3 +1,8 @@
+chrome.browserAction.onClicked.addListener(function(tab) {
+    var newURL = "http://www.youtube.com/watch?v=oHg5SJYRHA0";
+    chrome.tabs.create({ url: newURL });
+});
+
 chrome.runtime.onInstalled.addListener(function(){
 	id = chrome.contextMenus.create({
 		"title": "View in Lightbox", 
@@ -17,3 +22,4 @@ function contextClicked(info, tab){
 }
 
 chrome.contextMenus.onClicked.addListener(contextClicked);
+
