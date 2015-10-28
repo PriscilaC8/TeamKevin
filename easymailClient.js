@@ -15,10 +15,24 @@ function getSentences(text) {
     return sentenceList;
 }
 
+// Returns true if sentence contains a question mark
+function isQuestion(sentence) {
+    var re = /[?]/;
+    return sentence.match(re) != null;
+}
+
+// Given a list of text sentences, returns a string with sentences separated by <br> tags.
 function getSentenceHTML(sentenceList) {
     var html = '';
     while (sentenceList.length > 0) {
-        html += sentenceList.shift();
+        var currentSentence = sentenceList.shift();
+        if (isQuestion(currentSentence)) {
+            html += '<span class="question">';
+            html += currentSentence;
+            html += '</span>'
+        } else {
+            html += currentSentence;
+        }
         html += '<br>';
     }
     return html;
