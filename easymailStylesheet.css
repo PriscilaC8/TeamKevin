@@ -6,6 +6,25 @@
     width: 100%;
 }
 
+#reformat_button {
+    background: #0099FF;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+}
+
+#reformat_button:hover {
+    background: #00CCFF;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button:focus {
+    outline:0;
+}
+
 .content {
     width: 50%;
     margin: 25px auto;
