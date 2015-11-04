@@ -42,6 +42,7 @@ $(document).ready(function() {
     $('#reformat_button').click(function() {
         var rawText = $('#raw_text').val();
         var sentenceList = getSentences(rawText);
+        
         var sentenceHTML = getSentenceHTML(sentenceList);
         $('#reformatted_text').html(sentenceHTML);
     });
