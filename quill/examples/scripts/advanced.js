@@ -14,31 +14,16 @@ $(document).ready(function(){
       },
       'link-tooltip': true,
       'image-tooltip': true,
-      'multi-cursor': true
     },
     styles: false,
     theme: 'snow'
   });
-
-  authorship = advancedEditor.getModule('authorship');
-
-  authorship.addAuthor('basic', 'rgba(255,153,51,0.4)');
-
-  cursorManager = advancedEditor.getModule('multi-cursor');
-
-  cursorManager.setCursor('basic', 0, 'basic', 'rgba(255,153,51,0.9)');
-
-  advancedEditor.on('selection-change', function(range) {
-    return console.info('advanced', 'selection', range);
-  });
-
-  advancedEditor.on('text-change', function(delta, source) {
-    var sourceDelta, targetDelta;
-    if (source === 'api') {
-      return;
-    }
-    console.info('advanced', 'text', delta, source);
-    sourceDelta = advancedEditor.getContents();
-    return console.assert(_.isEqual(sourceDelta, targetDelta), "Editor diversion!", sourceDelta.ops, targetDelta.ops);
-  });
+    
+    $('#reformat_button').click(function() {
+        var rawText = advancedEditor.getHTML();
+        console.log(rawText);
+        var sentenceList = getSentences(rawText);
+        var sentenceHTML = getSentenceHTML(sentenceList);
+        advancedEditor.setHTML(sentenceHTML);
+    });
 })
