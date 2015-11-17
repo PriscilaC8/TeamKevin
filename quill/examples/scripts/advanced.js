@@ -18,12 +18,35 @@ $(document).ready(function(){
     styles: false,
     theme: 'snow'
   });
-    
-    $('#reformat_button').click(function() {
-        var rawText = advancedEditor.getHTML();
-        console.log(rawText);
-        var sentenceList = getSentences(rawText);
-        var sentenceHTML = getSentenceHTML(sentenceList);
-        advancedEditor.setHTML(sentenceHTML);
+
+  $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
+
+  $('.linespacing_percentage').on("input", function(){
+    console.log("HIII");
+    $('.editor-container').css('line-height', $(this).val()*100+'%');
+  });
+
+  $('.quetion_btn').on("input", function(){
+    $('.question').color("black");
+  })
+
+  $('#reformat_button').click(function() {
+    var rawText = advancedEditor.getHTML();
+    console.log(rawText);
+    var sentenceList = getSentences(rawText);
+    var sentenceHTML = getSentenceHTML(sentenceList);
+    advancedEditor.setHTML(sentenceHTML);
+  });
+
+  $('#settings_header').click(function(){
+    $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
+      $('.settings_button').show();
     });
+  });
+
+  $('.settings_button').click(function(){
+    $(this).hide();
+    $('#settings_panel').show("slide", {direction: "right"}, 500);
+  });
+
 })

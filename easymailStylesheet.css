@@ -1,3 +1,11 @@
+html, body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
 #reformatted_text {
     line-height: 200%;
 }
@@ -39,12 +47,91 @@ body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.title{
+    padding: 20px 0px;
+}
+
 h1 {
     text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+h2 {
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    color: #000000;
 }
 
 .submit {
     width: 50%;
+    height: 43px;
     margin: auto;
+    padding: 20px 0px;
 }
 
+.advanced-wrapper{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#easymail_main{
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.settings_button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-image: url('icons/bluegear32.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: none;
+    float: right;
+    height: 32px;
+    width: 32px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+}
+
+#settings_panel{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5F5;
+    /*background-color: #F5F5F5;*/
+}
+
+#settings_header{
+    padding: 20px 10px;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+
+.collapse_right_icon{
+    background-image: url("icons/blueright32.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline;
+    float: left;
+    height: 32px;
+    width: 32px;
+    margin: 0;
+    border: none;
+}
+
+.settings_title{
+    display: inline;
+    color: #0099FF;
+    padding-left: 20px;
+}
