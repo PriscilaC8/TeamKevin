@@ -26,4 +26,8 @@ $(document).ready(function(){
         var sentenceHTML = getSentenceHTML(sentenceList);
         advancedEditor.setHTML(sentenceHTML);
     });
+    
+    $('#clear').click(function() {
+        advancedEditor.setHTML("");
+    })
 })
