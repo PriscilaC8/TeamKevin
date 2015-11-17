@@ -22,9 +22,12 @@ $(document).ready(function(){
     $('#reformat_button').click(function() {
         var rawText = advancedEditor.getHTML();
         console.log(rawText);
-        var sentenceList = getSentences(rawText);
-        var sentenceHTML = getSentenceHTML(sentenceList);
-        advancedEditor.setHTML(sentenceHTML);
+        if(rawText.indexOf('class="question"') == -1)
+        {
+          var sentenceList = getSentences(rawText);
+          var sentenceHTML = getSentenceHTML(sentenceList);
+          advancedEditor.setHTML(sentenceHTML);
+        }        
     });
     
     $('#clear').click(function() {
