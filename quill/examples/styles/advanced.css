@@ -1,8 +1,8 @@
 .basic-wrapper,
 .advanced-wrapper {
   border: 1px solid #ccc;
-  float: left;
-  margin-left: 3%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 15px;
   margin-bottom: 15px;
 }

@@ -13,6 +13,7 @@
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     border: none;
+    float: right;
 }
 
 #reformat_button:hover {
@@ -33,3 +34,17 @@ button:focus {
 .question {
     color: red;
 }
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.submit {
+    width: 50%;
+    margin: auto;
+}
+
