@@ -46,6 +46,11 @@ html, body{
     cursor: pointer;
 }
 
+#reformat_button:disabled {
+    background: #00CCFD;
+    cursor: not-allowed;
+}
+
 button {
     margin-left: 5px;
     margin-right: 5px;
