@@ -28,14 +28,6 @@ $(document).ready(function(){
 
   $('.quetion_btn').on("input", function(){
     $('.question').color("black");
-  })
-
-  $('#reformat_button').click(function() {
-    var rawText = advancedEditor.getHTML();
-    console.log(rawText);
-    var sentenceList = getSentences(rawText);
-    var sentenceHTML = getSentenceHTML(sentenceList);
-    advancedEditor.setHTML(sentenceHTML);
   });
 
   $('#settings_header').click(function(){
@@ -49,4 +41,19 @@ $(document).ready(function(){
     $('#settings_panel').show("slide", {direction: "right"}, 500);
   });
 
+    
+  $('#reformat_button').click(function() {
+      var rawText = advancedEditor.getHTML();
+      console.log(rawText);
+      if(rawText.indexOf('class="question"') == -1)
+      {
+        var sentenceList = getSentences(rawText);
+        var sentenceHTML = getSentenceHTML(sentenceList);
+        advancedEditor.setHTML(sentenceHTML);
+      }        
+  });
+    
+  $('#clear').click(function() {
+    advancedEditor.setHTML("");
+  })
 })

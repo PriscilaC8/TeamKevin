@@ -14,6 +14,22 @@ html, body{
     width: 100%;
 }
 
+#clear {
+    background: #ff9933;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+}
+
+#clear:hover {
+    background: #ffa64d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #reformat_button {
     background: #0099FF;
     color: #ffffff;
@@ -21,7 +37,7 @@ html, body{
     padding: 10px 20px 10px 20px;
     text-decoration: none;
     border: none;
-    float: right;
+    display: inline-block;
 }
 
 #reformat_button:hover {
@@ -69,6 +85,7 @@ h2 {
     width: 50%;
     height: 43px;
     margin: auto;
+    text-align: right;
     padding: 20px 0px;
 }
 
@@ -104,12 +121,12 @@ h2 {
 #settings_panel{
     position: absolute;
     right: 0;
+    top: 0;
     height: 100%;
     width: 200px;
     margin: 0;
     padding: 0;
     background-color: #F5F5F5;
-    /*background-color: #F5F5F5;*/
 }
 
 #settings_header{
