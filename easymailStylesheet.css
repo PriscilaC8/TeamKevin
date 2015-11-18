@@ -38,6 +38,11 @@
     cursor: pointer;
 }
 
+button {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 button:focus {
     outline:0;
 }
