@@ -33,6 +33,8 @@ $(document).ready(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
         $('#easymail_main').addClass('fullscreen');
         $('.settings_button').show();
+        $('.advanced-wrapper').css('width', '50%');
+        $('.submit').css('width', '50%');
     });
   });
 
@@ -40,10 +42,21 @@ $(document).ready(function(){
     $(this).hide();
     $('#easymail_main').removeClass('fullscreen')
     $('#settings_panel').show("slide", {direction: "right"}, 500);
+    $('.advanced-wrapper').css('width', '60%');
+    $('.submit').css('width', '50%');
   });
 
+  $('#ql-editor-1').keyup(function(){
+    console.log(advancedEditor.getLength());
+    if(advancedEditor.getLength() == 1)  //the quill editor doesn't go down to zero characters
+    {
+      console.log("Hi");
+      $('#reformat_button').removeAttr('disabled');
+    }
+  });
     
   $('#reformat_button').click(function() {
+      $('#reformat_button').attr('disabled','true');
       var rawText = advancedEditor.getHTML();
       console.log(rawText);
       if(rawText.indexOf('class="question"') == -1)
@@ -56,7 +69,8 @@ $(document).ready(function(){
     
   $('#clear').click(function() {
     advancedEditor.setHTML("");
-  })
+    $('#reformat_button').removeAttr('disabled');
+  });
 })
 
 // Given a string of text, returns a list of sentences contained in the text.

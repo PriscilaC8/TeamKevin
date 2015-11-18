@@ -49,6 +49,11 @@ html, body{
     cursor: pointer;
 }
 
+#reformat_button:disabled {
+    background: #00CCFD;
+    cursor: not-allowed;
+}
+
 button:focus {
     outline:0;
 }
@@ -90,7 +95,7 @@ h2 {
 }
 
 .submit {
-    width: 50%;
+    width: 60%;
     height: 43px;
     margin: auto;
     text-align: right;
