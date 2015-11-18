@@ -96,10 +96,14 @@ h2 {
 
 #easymail_main{
     position: absolute;
-    width: 100%;
+    width: 80%;
     padding: 0;
     margin: 0;
     border: none;
+}
+
+#easymail_main.fullscreen{
+    width: 100%;
 }
 
 .settings_button{
@@ -123,7 +127,7 @@ h2 {
     right: 0;
     top: 0;
     height: 100%;
-    width: 200px;
+    width: 20%;
     margin: 0;
     padding: 0;
     background-color: #F5F5F5;
@@ -151,4 +155,10 @@ h2 {
     display: inline;
     color: #0099FF;
     padding-left: 20px;
+}
+
+.settings_content{
+    padding: 10px;
+    margin: 0;
+    border: none;
 }

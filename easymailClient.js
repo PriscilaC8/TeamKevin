@@ -22,7 +22,6 @@ $(document).ready(function(){
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
   $('.linespacing_percentage').on("input", function(){
-    console.log("HIII");
     $('.editor-container').css('line-height', $(this).val()*100+'%');
   });
 
@@ -32,12 +31,14 @@ $(document).ready(function(){
 
   $('#settings_header').click(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
-      $('.settings_button').show();
+        $('#easymail_main').addClass('fullscreen');
+        $('.settings_button').show();
     });
   });
 
   $('.settings_button').click(function(){
     $(this).hide();
+    $('#easymail_main').removeClass('fullscreen')
     $('#settings_panel').show("slide", {direction: "right"}, 500);
   });
 
