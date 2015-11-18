@@ -41,8 +41,17 @@ $(document).ready(function(){
     $('#settings_panel').show("slide", {direction: "right"}, 500);
   });
 
+  $('#ql-editor-1').keyup(function(){
+    console.log(advancedEditor.getLength());
+    if(advancedEditor.getLength() == 1)  //the quill editor doesn't go down to zero characters
+    {
+      console.log("Hi");
+      $('#reformat_button').removeAttr('disabled');
+    }
+  })
     
   $('#reformat_button').click(function() {
+      $('#reformat_button').attr('disabled','true');
       var rawText = advancedEditor.getHTML();
       console.log(rawText);
       if(rawText.indexOf('class="question"') == -1)
@@ -55,5 +64,6 @@ $(document).ready(function(){
     
   $('#clear').click(function() {
     advancedEditor.setHTML("");
-  })
+    $('#reformat_button').removeAttr('disabled');
+  });
 })
