@@ -46,11 +46,6 @@ html, body{
     cursor: pointer;
 }
 
-button {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
 button:focus {
     outline:0;
 }
@@ -111,7 +106,7 @@ h2 {
     position: absolute;
     right: 0;
     top: 0;
-    background-image: url('icons/bluegear32.png');
+    background-image: url('icons/blueleft32.png');
     background-repeat: no-repeat;
     background-position: center center;
     display: none;
