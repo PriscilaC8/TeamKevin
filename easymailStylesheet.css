@@ -4,6 +4,9 @@ html, body{
     margin: 0px;
     padding: 0px;
     border: 0px;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 #reformatted_text {
@@ -15,8 +18,8 @@ html, body{
 }
 
 #clear {
-    background: #ff9933;
-    color: #ffffff;
+    background: #f2f2f2;
+    color: #0099FF;
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
@@ -25,14 +28,14 @@ html, body{
 }
 
 #clear:hover {
-    background: #ffa64d;
+    background: #e6e6e6;
     text-decoration: none;
     cursor: pointer;
 }
 
 #reformat_button {
     background: #0099FF;
-    color: #ffffff;
+    color: #f2f2f2;
     font-size: 20px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
@@ -51,13 +54,13 @@ html, body{
     cursor: not-allowed;
 }
 
+button:focus {
+    outline:0;
+}
+
 button {
     margin-left: 5px;
     margin-right: 5px;
-}
-
-button:focus {
-    outline:0;
 }
 
 .content {
@@ -92,7 +95,7 @@ h2 {
 }
 
 .submit {
-    width: 50%;
+    width: 60%;
     height: 43px;
     margin: auto;
     text-align: right;
@@ -106,23 +109,28 @@ h2 {
 
 #easymail_main{
     position: absolute;
-    width: 100%;
+    width: 80%;
     padding: 0;
     margin: 0;
     border: none;
+}
+
+#easymail_main.fullscreen{
+    width: 100%;
 }
 
 .settings_button{
     position: absolute;
     right: 0;
     top: 0;
-    background-image: url('icons/bluegear32.png');
+    background-image: url('icons/blueleft32.png');
     background-repeat: no-repeat;
     background-position: center center;
     display: none;
     float: right;
     height: 32px;
     width: 32px;
+    padding: 0px 20px;
     margin: 0;
     border: none;
     cursor: pointer;
@@ -133,16 +141,21 @@ h2 {
     right: 0;
     top: 0;
     height: 100%;
-    width: 200px;
+    width: 20%;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-color: #F5F5F5;
 }
 
 #settings_header{
-    padding: 20px 10px;
+    padding: 15px 0px;
     cursor: pointer;
     border-bottom: 1px solid white;
+}
+
+.settings_content {
+    padding: 15px 0px;
+    line-height: 2;
 }
 
 .collapse_right_icon{
@@ -161,4 +174,10 @@ h2 {
     display: inline;
     color: #0099FF;
     padding-left: 20px;
+}
+
+.settings_content{
+    padding: 10px;
+    margin: 0;
+    border: none;
 }
