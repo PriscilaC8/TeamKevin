@@ -33,6 +33,8 @@ $(document).ready(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
         $('#easymail_main').addClass('fullscreen');
         $('.settings_button').show();
+        $('.advanced-wrapper').css('width', '50%');
+        $('.submit').css('width', '50%');
     });
   });
 
@@ -40,6 +42,8 @@ $(document).ready(function(){
     $(this).hide();
     $('#easymail_main').removeClass('fullscreen')
     $('#settings_panel').show("slide", {direction: "right"}, 500);
+    $('.advanced-wrapper').css('width', '60%');
+    $('.submit').css('width', '50%');
   });
 
     
