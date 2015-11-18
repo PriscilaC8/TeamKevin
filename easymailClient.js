@@ -31,12 +31,14 @@ $(document).ready(function(){
 
   $('#settings_header').click(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
-      $('.settings_button').show();
+        $('#easymail_main').addClass('fullscreen');
+        $('.settings_button').show();
     });
   });
 
   $('.settings_button').click(function(){
     $(this).hide();
+    $('#easymail_main').removeClass('fullscreen')
     $('#settings_panel').show("slide", {direction: "right"}, 500);
   });
 

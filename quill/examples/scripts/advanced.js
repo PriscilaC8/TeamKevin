@@ -22,16 +22,16 @@ $(document).ready(function(){
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
   $('.linespacing_percentage').on("input", function(){
-    console.log("HIII");
     $('.editor-container').css('line-height', $(this).val()*100+'%');
   });
 
-  $('.quetion_btn').on("input", function(){
+  $('.question_btn').on("input", function(){
     $('.question').color("black");
   });
 
   $('#settings_header').click(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
+      $('.easymail_main').addClass('fullscreen');
       $('.settings_button').show();
     });
   });
