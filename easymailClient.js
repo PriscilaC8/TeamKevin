@@ -21,11 +21,11 @@ $(document).ready(function(){
 
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
-  $('.linespacing_percentage').on("input", function(){
-    $('.editor-container').css('line-height', $(this).val()*100+'%');
+  $('#line-spacing-selector').change(function(){
+      $('.editor-container').css('line-height', $('#line-spacing-selector').val());
   });
 
-  $('.quetion_btn').on("input", function(){
+  $('.question_btn').on("input", function(){
     $('.question').color("black");
   });
 
