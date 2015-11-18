@@ -75,7 +75,7 @@ $(document).ready(function(){
 
 // Given a string of text, returns a list of sentences contained in the text.
 function getSentences(text) {
-    var re = /[\.?!]\s+[A-Z](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
+    var re = /[\.?!]\s+[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
     var myArray;
     var sentenceList = [];
     var lastIndex = -1;
