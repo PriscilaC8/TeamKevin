@@ -43,7 +43,7 @@ $(document).ready(function(){
     $('#easymail_main').removeClass('fullscreen')
     $('#settings_panel').show("slide", {direction: "right"}, 500);
     $('.advanced-wrapper').css('width', '60%');
-    $('.submit').css('width', '50%');
+    $('.submit').css('width', '60%');
   });
 
   $('#ql-editor-1').keyup(function(){
