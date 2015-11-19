@@ -110,9 +110,9 @@ function isQuestion(sentence) {
 }
 
 function findWords(sentence) {
-    var words = ["Could","Would","Should","Can you","conclusion"];
+    var words = ["Could","Would","Should","Can you","conclusion", "however"];
     var indexes = [];
-    for(i = 0; i<5; i++){
+    for(i = 0; i<words.length; i++){
         if(sentence.indexOf(words[i]) != -1)
         {
             indexes.push([sentence.indexOf(words[i]),words[i].length]);
