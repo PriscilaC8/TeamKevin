@@ -133,7 +133,6 @@
     </div>
 
     <div class="settings_content">
-      <form>
         <label>Line Spacing: </label>
           <select id="line-spacing-selector">
               <option value="1">1</option>
@@ -146,7 +145,12 @@
           <input class="question_btn" type="checkbox" name="questions">Questions</input>
             <input type="color" name="questions_color" style="display: none;"></input>
             <input type="color" name="questions_color" value="#FF0000"></input>
-      </form>
+        <div><label>Find All:</label>
+            <br>
+            <select multiple id="find-all-words" style="width: 120px;">
+            </select>
+            <div><input type="text" id="new-word"><button id="add-word">Add word</button></div>
+        </div>
     </div>
   </div>
 </body>

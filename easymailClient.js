@@ -71,6 +71,11 @@ $(document).ready(function(){
     advancedEditor.setHTML("");
     $('#reformat_button').removeAttr('disabled');
   });
+    
+    $('#add-word').click(function() {
+        var word = $('#new-word').text();
+        $('#find-all-words').append($("<option></option>").attr("value", word).text(word));
+    })
 })
 
 // Given a string of text, returns a list of sentences contained in the text.
