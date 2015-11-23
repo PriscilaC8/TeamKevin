@@ -50,7 +50,7 @@ html, body{
 }
 
 #reformat_button:disabled {
-    background: #00CCFD;
+    background: #00CCFF;
     cursor: not-allowed;
 }
 
@@ -70,6 +70,10 @@ button {
 
 .question {
     color: red;
+}
+
+.containsWord {
+    color: #00CCFF;
 }
 
 body {
