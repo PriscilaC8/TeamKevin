@@ -23,8 +23,14 @@ $(document).ready(function(){
 
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
+  $('.editor-container').css('letter-spacing', '2px');
+
   $('#line-spacing-selector').change(function(){
       $('.editor-container').css('line-height', $('#line-spacing-selector').val());
+  });
+
+  $('#character-spacing-selector').change(function(){
+      $('.editor-container').css('letter-spacing', $('#character-spacing-selector').val());
   });
 
   $('.question_btn').on("input", function(){
