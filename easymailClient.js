@@ -1,3 +1,5 @@
+var words = ["Could","Would","Should","Can you","conclusion", "however"];
+
 $(document).ready(function(){
   var advancedEditor, authorship, cursorManager, _;
 
@@ -71,9 +73,31 @@ $(document).ready(function(){
     $('#reformat_button').removeAttr('disabled');
   });
     
+    $.each(words, function(index, word) {
+        $('#find-all-words')
+            .append($("<option></option>")
+            .attr("value",word)
+            .text(word));
+    })
+    
     $('#add-word').click(function() {
-        var word = $('#new-word').text();
-        $('#find-all-words').append($("<option></option>").attr("value", word).text(word));
+        var word = $('#new-word').val();
+        $('#find-all-words')
+             .append($("<option></option>")
+             .attr("value",word)
+             .text(word));
+        words.push(word);
+    })
+    
+    $('#delete-word').click(function() {
+        $('#find-all-words :selected').each(function(i, selected){ 
+            var word = $(this).text();
+            var index = words.indexOf(word);
+            if (index > -1) {
+                words.splice(index, 1);
+            }
+            $(this).remove();
+        });
     })
 })
 
@@ -94,28 +118,13 @@ function getSentences(text) {
     return sentenceList;
 }
 
-//// CURRENTLY NOT WORKING
-//function getSentences2(sentenceList) {
-//    var newSentenceList = [];
-//    for (i = 0; i < sentenceList.length; i++) {    
-//        oldSentence = sentenceList[i];
-//        sentences = oldSentence.split(/<div>/g);
-//        for (j = 0; j < sentences.length; j++) {
-//            sentences[j] = '<div>' + sentences[j];
-//        }
-//        newSentenceList = newSentenceList.concat(sentences);
-//    }
-//    return newSentenceList;
-//}
-
 // Returns true if sentence contains a question mark
 function isQuestion(sentence) {
     var re = /[?]/;
     return sentence.match(re) != null;
 }
 
-function findWords(sentence) {
-    var words = ["Could","Would","Should","Can you","conclusion", "however"];
+function findWords(sentence, words) {
     var indexes = [];
     for(i = 0; i<words.length; i++){
         if(sentence.indexOf(words[i]) != -1)
@@ -152,7 +161,7 @@ function getSentenceHTML(sentenceList) {
     var html = '';
     while (sentenceList.length > 0) {
         var currentSentence = sentenceList.shift();
-        var indexes = findWords(currentSentence);
+        var indexes = findWords(currentSentence, words);
         if (isQuestion(currentSentence)) {
             html += '<span class="question">';
             html += currentSentence;
