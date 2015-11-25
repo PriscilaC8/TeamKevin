@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="quill/quill.snow.css">
+	<link rel="shortcut icon" href="icons/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="quill/quill.snow.css">
   <link rel="stylesheet" type="text/css" href="quill/examples/styles/advanced.css">
   <link rel="stylesheet" type="text/css" href="easymailStylesheet.css">
 	<script src="jquery-2.1.4.min.js"></script>
@@ -134,10 +135,14 @@
 
     <div class="settings_content">
         <label>Line Spacing: </label>
-          <select id="line-spacing-selector">
-              <option value="1">1</option>
-              <option value="1.5">1.5</option>
-              <option value="2">2</option>
+            <select id="line-spacing-selector">
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+                <option value="3.5">3.5</option>
+                <option value="4">4</option>
           </select>
           <br>
         <label>Letter Spacing: </label>  
@@ -153,20 +158,17 @@
               <option value="9px">9</option>
               <option value="10px">10</option>
           </select>
-          <br>
-        <label>Format:</label>
-          <br>
-          <input class="question_btn" type="checkbox" name="questions">Questions</input>
-            <input type="color" name="questions_color" style="display: none;"></input>
-            <input type="color" name="questions_color" value="#FF0000"></input>
-        <div><label>Find All:</label>
-            <br>
+          <div><label>Question Color: </label><input type="color" id="questions_color" value="#E60000"></input></div>
+        <div><label>Find All Color: </label><input type="color" id="findall_color" value="#0066CC" /></div>
+      <div style="margin-left: 20%"><div><label style="font-size: 0.9em">Words:</label></div>
             <select multiple id="find-all-words" style="width: 120px" size="10">
             </select>
             <button id="delete-word">Delete selected</button>
             <div><input type="text" id="new-word"><button id="add-word">Add word</button></div>
+      </div>
         </div>
     </div>
   </div>
+    <p class="question" style="display:none"></p>
 </body>
 </html>

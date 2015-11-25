@@ -20,7 +20,7 @@ $(document).ready(function(){
     styles: false,
     theme: 'snow'
   });
-
+        
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
   $('.editor-container').css('letter-spacing', '2px');
@@ -33,9 +33,17 @@ $(document).ready(function(){
       $('.editor-container').css('letter-spacing', $('#character-spacing-selector').val());
   });
 
-  $('.question_btn').on("input", function(){
-    $('.question').color("black");
-  });
+//  $('.question_btn').on("input", function(){
+//    $('.question').color("black");
+//  });
+    
+    $('#questions_color').change(function() {
+        $('.question').css('color', $('#questions_color').val());
+    })
+    
+    $('#findall_color').change(function() {
+        $('.containsWord').css('color', $('#findall_color').val());
+    })
 
   $('#settings_header').click(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
@@ -65,13 +73,14 @@ $(document).ready(function(){
   $('#reformat_button').click(function() {
       $('#reformat_button').attr('disabled','true');
       var rawText = advancedEditor.getHTML();
-      // console.log(rawText);
       if(rawText.indexOf('class="question"') == -1)
       {
         var sentenceList = getSentences(rawText);
         var sentenceHTML = getSentenceHTML(sentenceList);
         advancedEditor.setHTML(sentenceHTML);
-      }        
+      }
+      $('.question').css('color', $('#questions_color').val());
+      $('.containsWord').css('color', $('#findall_color').val());
   });
     
   $('#clear').click(function() {
@@ -93,6 +102,7 @@ $(document).ready(function(){
              .attr("value",word)
              .text(word));
         words.push(word);
+        $('#new-word').val('');
     })
     
     $('#delete-word').click(function() {
@@ -107,6 +117,13 @@ $(document).ready(function(){
     })
 })
 
+function endsWith(string, substring) {
+    if (substring.length <= string.length) {
+        return string.substring(string.length-substring.length) == substring;
+    }
+    return false;
+}
+
 // Given a string of text, returns a list of sentences contained in the text.
 function getSentences(text) {
     var re = /[\.?!]\s+[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
@@ -115,11 +132,14 @@ function getSentences(text) {
     var lastIndex = -1;
     while ((myArray = re.exec(text)) !== null) {
         var punct = myArray.index;                                              // index of punctuation
-        sentenceList.push(text.substring(Math.max(0,lastIndex-1), punct+1))     // add sentence to list
-        lastIndex = re.lastIndex;                                               // update last index accounted for
+        var sentence = text.substring(Math.max(0,lastIndex-1), punct+1);
+        if (!(endsWith(sentence, 'Mr.') || endsWith(sentence, 'Mrs.') || endsWith(sentence, 'Ms.'))) {
+            sentenceList.push(sentence);                                        // add sentence to list
+            lastIndex = re.lastIndex;                                           // update last index accounted for
+        }
     }
     if (re.lastIndex != -1) {
-        sentenceList.push(text.substring(punct+1, text.length));                // add last sentence
+        sentenceList.push(text.substring(punct+1, text.length).trim());                // add last sentence
     }
     return sentenceList;
 }
@@ -133,10 +153,12 @@ function isQuestion(sentence) {
 function findWords(sentence, words) {
     var indexes = [];
     for(i = 0; i<words.length; i++){
-        if(sentence.indexOf(words[i]) != -1)
+        var currentWord = words[i].toLowerCase();
+        var sentenceAllLower = sentence.toLowerCase();
+        if(sentenceAllLower.indexOf(currentWord) != -1)
         {
-            indexes.push([sentence.indexOf(words[i]),words[i].length]);
-            console.log("found one");
+            indexes.push([sentenceAllLower.indexOf(currentWord),currentWord.length]);
+//            console.log("found one");
         }
     }
     return indexes
