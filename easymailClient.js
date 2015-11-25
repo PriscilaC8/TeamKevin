@@ -32,18 +32,32 @@ $(document).ready(function(){
   $('#character-spacing-selector').change(function(){
       $('.editor-container').css('letter-spacing', $('#character-spacing-selector').val());
   });
-
-//  $('.question_btn').on("input", function(){
-//    $('.question').color("black");
-//  });
     
     $('#questions_color').change(function() {
         $('.question').css('color', $('#questions_color').val());
-    })
+    });
     
     $('#findall_color').change(function() {
         $('.containsWord').css('color', $('#findall_color').val());
-    })
+    });
+    
+    $('#questions-toggle').change(function() {
+        if (!($('#questions-toggle').is(':checked'))) {
+            console.log('remove color attribute from question class');
+            $('.question').css('color', '');
+        } else {
+            $('.question').css('color', $('#questions_color').val());
+        }
+    });
+                                  
+    $('#findall-toggle').change(function() {
+        if (!($('#findall-toggle').is(':checked'))) {
+            console.log('remove color attribute from toggle class');
+            $('.containsWord').css('color', '');
+        } else {
+            $('.containsWord').css('color', $('#findall_color').val());
+        }
+    });
 
   $('#settings_header').click(function(){
     $('#settings_panel').hide("slide", {direction: "right"}, 500, function(){
