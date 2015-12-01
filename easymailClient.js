@@ -140,11 +140,13 @@ function endsWith(string, substring) {
 
 // Given a string of text, returns a list of sentences contained in the text.
 function getSentences(text) {
-    var re = /[\.?!]\s+[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
+    var re = /[\.?!]\s+(&nbsp;)*[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
     var myArray;
     var sentenceList = [];
     var lastIndex = -1;
+    console.log(text);
     while ((myArray = re.exec(text)) !== null) {
+        console.log('in while loop');
         var punct = myArray.index;                                              // index of punctuation
         var sentence = text.substring(Math.max(0,lastIndex-1), punct+1);
         if (!(endsWith(sentence, 'Mr.') || endsWith(sentence, 'Mrs.') || endsWith(sentence, 'Ms.'))) {
@@ -155,6 +157,7 @@ function getSentences(text) {
     if (re.lastIndex != -1) {
         sentenceList.push(text.substring(punct+1, text.length).trim());                // add last sentence
     }
+    console.log(sentenceList);
     return sentenceList;
 }
 
