@@ -110,7 +110,10 @@ $(document).ready(function(){
     })
     
     $('#add-word').click(function() {
-        var word = $('#new-word').val();
+        var word = $('#new-word').val().trim();
+        if (word.length == 0) {
+            return;
+        }
         $('#find-all-words')
              .append($("<option></option>")
              .attr("value",word)
@@ -146,7 +149,6 @@ function getSentences(text) {
     var lastIndex = -1;
     console.log(text);
     while ((myArray = re.exec(text)) !== null) {
-        console.log('in while loop');
         var punct = myArray.index;                                              // index of punctuation
         var sentence = text.substring(Math.max(0,lastIndex-1), punct+1);
         if (!(endsWith(sentence, 'Mr.') || endsWith(sentence, 'Mrs.') || endsWith(sentence, 'Ms.'))) {
@@ -156,8 +158,8 @@ function getSentences(text) {
     }
     if (re.lastIndex != -1) {
         sentenceList.push(text.substring(punct+1, text.length).trim());                // add last sentence
+        console.log(text.substring(punct+1, text.length).trim());
     }
-    console.log(sentenceList);
     return sentenceList;
 }
 

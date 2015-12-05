@@ -120,7 +120,7 @@
       </div>
     </div>
     <div class="submit">
-		  <button id="clear" type="button">Clear All</button>
+		  <button id="clear" type="button">Clear Text</button>
       <button id="reformat_button" type="button">Format Text</button>
     </div>
   </div>
@@ -134,7 +134,8 @@
     </div>
 
     <div class="settings_content">
-        <label>Line Spacing: </label>
+        <div class="realtime_settings">
+            <label>Line Spacing: </label>
             <select id="line-spacing-selector">
                 <option value="1">1</option>
                 <option value="1.5">1.5</option>
@@ -145,7 +146,7 @@
                 <option value="4">4</option>
           </select>
           <br>
-        <label>Letter Spacing: </label>  
+        <label>Character Spacing: </label>  
           <select id="character-spacing-selector">
               <option value="1px">1</option>
               <option value="2px" selected="selected">2</option>
@@ -160,11 +161,14 @@
           </select>
           <div><input type="checkbox" id="questions-toggle" checked><label> Question Color: </label><input type="color" id="questions_color" value="#E60000"></input></div>
         <div><input type="checkbox" id="findall-toggle" checked><label> Find All Color: </label><input type="color" id="findall_color" value="#0066CC" /></div>
-      <div style="margin-left: 20%"><div><label style="font-size: 0.9em">Words:</label></div>
-            <select multiple id="find-all-words" style="width: 120px" size="10">
-            </select>
-            <button id="delete-word">Delete selected</button>
-            <div><input type="text" id="new-word"><button id="add-word">Add word</button></div>
+        </div>
+      <div class="find_all_settings">
+          <div><label>Find All Words:</label></div>
+          <div><select multiple id="find-all-words" style="width: 120px" size="10"></select></div>
+                <button class="find_all_button" id="delete-word">Delete selected</button>
+          <div style="margin-top: 10px"><input type="text" id="new-word"></div>
+          <div><button class="find_all_button" id="add-word">Add word</button></div>
+        </div>
       </div>
         </div>
     </div>

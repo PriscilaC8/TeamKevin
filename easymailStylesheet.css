@@ -37,7 +37,7 @@ html, body{
     background: #0099FF;
     color: #f2f2f2;
     font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 20px;
     text-decoration: none;
     border: none;
     display: inline-block;
@@ -50,8 +50,25 @@ html, body{
 }
 
 #reformat_button:disabled {
-    background: #00CCFF;
+    background: #FFFFFF;
+    color: #f2f2f2;
     cursor: not-allowed;
+}
+
+.find_all_button {
+    background: #b3e0ff;
+    font-size: 0.9em;
+    padding: 5px 10px;
+    margin: 10px 0px;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+}
+
+.find_all_button:hover {
+    background: #0099FF;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 button:focus {
@@ -74,6 +91,7 @@ body {
 
 .title{
     padding: 20px 0px;
+    height: 5%;
 }
 
 h1 {
@@ -81,6 +99,7 @@ h1 {
     margin: 0;
     padding: 0;
     border: none;
+    bottom: 0;
 }
 
 h2 {
@@ -101,11 +120,17 @@ h2 {
 .advanced-wrapper{
     margin-top: 0;
     margin-bottom: 0;
+    height: 100%;
+}
+
+#content-container{
+    height: 70%;
 }
 
 #easymail_main{
     position: absolute;
     width: 80%;
+    height: 100%;
     padding: 0;
     margin: 0;
     border: none;
@@ -151,9 +176,14 @@ h2 {
     border-bottom: 1px solid white;
 }
 
-.settings_content {
-    padding: 20px 0px;
-    line-height: 2;
+.realtime_settings {
+    background: #b3e0ff;
+    padding: 10px 20px;
+}
+
+.find_all_settings {
+    background: #e5f5ff;
+    padding: 10px 20px;
 }
 
 .collapse_right_icon{
@@ -175,7 +205,15 @@ h2 {
 }
 
 .settings_content{
-    padding: 20px;
     margin: 0;
     border: none;
+    line-height: 2;
+}
+
+input {
+    font-size: 100%;
+}
+
+select {
+    font-size: 100%;
 }
