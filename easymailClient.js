@@ -20,6 +20,9 @@ $(document).ready(function(){
     styles: false,
     theme: 'snow'
   });
+    
+    setContainerHeight();
+    setRealtimeWidth(20);
         
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
@@ -86,7 +89,7 @@ $(document).ready(function(){
     
   $('#reformat_button').click(function() {
       $('#reformat_button').attr('disabled','true');
-      var rawText = advancedEditor.getHTML();
+      var rawText = advancedEditor.getHTML().replace(/&nbsp;/g, ' ');
       if(rawText.indexOf('class="question"') == -1)
       {
         var sentenceList = getSentences(rawText);
@@ -107,7 +110,7 @@ $(document).ready(function(){
             .append($("<option></option>")
             .attr("value",word)
             .text(word));
-    })
+    });
     
     $('#add-word').click(function() {
         var word = $('#new-word').val().trim();
@@ -120,7 +123,7 @@ $(document).ready(function(){
              .text(word));
         words.push(word);
         $('#new-word').val('');
-    })
+    });
     
     $('#delete-word').click(function() {
         $('#find-all-words :selected').each(function(i, selected){ 
@@ -131,8 +134,25 @@ $(document).ready(function(){
             }
             $(this).remove();
         });
-    })
+    });
+    
+    $(window).resize(function() {
+        setContainerHeight();
+        setRealtimeWidth(20);
+    });
 })
+
+function setContainerHeight() {
+    var toolbar_height = $('#toolbar').height();
+    var container_height = $('#content-container').height();
+    var editor_height = container_height - toolbar_height - 50;
+    $('.editor-container').height(editor_height);
+}
+
+function setRealtimeWidth(padding) {
+    var settings_width = $('.settings_content').width();
+    $('.realtime_settings').width(settings_width - 2*padding);         // hard-coded 40 pixel padding (20 right, 20 left)
+}
 
 function endsWith(string, substring) {
     if (substring.length <= string.length) {
@@ -143,11 +163,10 @@ function endsWith(string, substring) {
 
 // Given a string of text, returns a list of sentences contained in the text.
 function getSentences(text) {
-    var re = /[\.?!]\s+(&nbsp;)*[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
+    var re = /[\.?!]\s+[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
     var myArray;
     var sentenceList = [];
     var lastIndex = -1;
-    console.log(text);
     while ((myArray = re.exec(text)) !== null) {
         var punct = myArray.index;                                              // index of punctuation
         var sentence = text.substring(Math.max(0,lastIndex-1), punct+1);
@@ -158,7 +177,7 @@ function getSentences(text) {
     }
     if (re.lastIndex != -1) {
         sentenceList.push(text.substring(punct+1, text.length).trim());                // add last sentence
-        console.log(text.substring(punct+1, text.length).trim());
+//        console.log(text.substring(punct+1, text.length).trim());
     }
     return sentenceList;
 }

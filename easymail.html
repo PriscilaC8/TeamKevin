@@ -23,7 +23,7 @@
 
     <div id="content-container">
       <div class="advanced-wrapper">
-        <div class="toolbar-container"><span class="ql-format-group">
+        <div class="toolbar-container" id="toolbar"><span class="ql-format-group">
           <select title="Font" class="ql-font">
             <option value="sans-serif" selected>Sans Serif</option>
             <option value="Georgia, serif">Serif</option>
@@ -135,42 +135,56 @@
 
     <div class="settings_content">
         <div class="realtime_settings">
-            <label>Line Spacing: </label>
-            <select id="line-spacing-selector">
-                <option value="1">1</option>
-                <option value="1.5">1.5</option>
-                <option value="2">2</option>
-                <option value="2.5">2.5</option>
-                <option value="3">3</option>
-                <option value="3.5">3.5</option>
-                <option value="4">4</option>
-          </select>
-          <br>
-        <label>Character Spacing: </label>  
-          <select id="character-spacing-selector">
-              <option value="1px">1</option>
-              <option value="2px" selected="selected">2</option>
-              <option value="3px">3</option>
-              <option value="4px">4</option>
-              <option value="5px">5</option>
-              <option value="6px">6</option>
-              <option value="7px">7</option>
-              <option value="8px">8</option>
-              <option value="9px">9</option>
-              <option value="10px">10</option>
-          </select>
-          <div><input type="checkbox" id="questions-toggle" checked><label> Question Color: </label><input type="color" id="questions_color" value="#E60000"></input></div>
-        <div><input type="checkbox" id="findall-toggle" checked><label> Find All Color: </label><input type="color" id="findall_color" value="#0066CC" /></div>
+            <div class="settings_row">
+                <div class="settings_label"><label>Line Spacing: </label></div>
+                <div class="settings_selection">
+                    <select id="line-spacing-selector">
+                        <option value="1">1</option>
+                        <option value="1.5">1.5</option>
+                        <option value="2">2</option>
+                        <option value="2.5">2.5</option>
+                        <option value="3">3</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+        <div class="settings_row">
+            <div class="settings_label"><label>Character Spacing: </label></div>
+            <div class="settings_selection">
+                <select id="character-spacing-selector">
+                  <option value="1px">1</option>
+                  <option value="2px" selected="selected">2</option>
+                  <option value="3px">3</option>
+                  <option value="4px">4</option>
+                  <option value="5px">5</option>
+                  <option value="6px">6</option>
+                  <option value="7px">7</option>
+                  <option value="8px">8</option>
+                  <option value="9px">9</option>
+                  <option value="10px">10</option>
+                </select>
+            </div>
+            </div>
+        <div class="settings_row">
+            <div class="settings_label"><input type="checkbox" id="questions-toggle" checked><label> Question Color: </label></div>
+            <div class="settings_selection"><input type="color" id="questions_color" value="#E60000"></input></div>
         </div>
-      <div class="find_all_settings">
+        <div class="settings_row">
+            <div class="settings_label"><input type="checkbox" id="findall-toggle" checked><label> Find All Color: </label></div>
+            <div class="settings_selection"><input type="color" id="findall_color" value="#0066CC" /></div>
+        </div>
+        </div>
+      
+    <div class="find_all_settings">
           <div><label>Find All Words:</label></div>
           <div><select multiple id="find-all-words" style="width: 120px" size="10"></select></div>
                 <button class="find_all_button" id="delete-word">Delete selected</button>
           <div style="margin-top: 10px"><input type="text" id="new-word"></div>
           <div><button class="find_all_button" id="add-word">Add word</button></div>
-        </div>
-      </div>
-        </div>
+    </div>
+    </div>
+    </div>
     </div>
   </div>
     <p class="question" style="display:none"></p>

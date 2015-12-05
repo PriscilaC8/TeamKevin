@@ -163,6 +163,8 @@ h2 {
     top: 0;
     height: 100%;
     width: 20%;
+    min-width: 240px;
+    max-width: 350px;
     margin: 0;
     padding: 0px;
     background-color: #F5F5F5;
@@ -178,12 +180,17 @@ h2 {
 
 .realtime_settings {
     background: #b3e0ff;
-    padding: 10px 20px;
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .find_all_settings {
     background: #e5f5ff;
     padding: 10px 20px;
+    clear: both;
 }
 
 .collapse_right_icon{
@@ -208,6 +215,8 @@ h2 {
     margin: 0;
     border: none;
     line-height: 2;
+    height: 100%;
+    width: 100%;
 }
 
 input {
@@ -216,4 +225,16 @@ input {
 
 select {
     font-size: 100%;
+}
+
+.settings_label {
+    float: left;
+}
+
+.settings_selection {
+    float: right;
+}
+
+.settings_row {
+    clear: both;
 }
