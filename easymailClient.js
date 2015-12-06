@@ -23,6 +23,7 @@ $(document).ready(function(){
     
     setContainerHeight();
     setRealtimeWidth(20);
+    $('.editor-container').css('line-height', $('#line-spacing-selector').val());
         
   $('.editor-container').css('line-height', $('.linespacing_percentage').val()*100+"%");
 
@@ -46,7 +47,6 @@ $(document).ready(function(){
     
     $('#questions-toggle').change(function() {
         if (!($('#questions-toggle').is(':checked'))) {
-            console.log('remove color attribute from question class');
             $('.question').css('color', '');
         } else {
             $('.question').css('color', $('#questions_color').val());
@@ -55,7 +55,6 @@ $(document).ready(function(){
                                   
     $('#findall-toggle').change(function() {
         if (!($('#findall-toggle').is(':checked'))) {
-            console.log('remove color attribute from toggle class');
             $('.containsWord').css('color', '');
         } else {
             $('.containsWord').css('color', $('#findall_color').val());
@@ -89,11 +88,16 @@ $(document).ready(function(){
     
   $('#reformat_button').click(function() {
       $('#reformat_button').attr('disabled','true');
+      $('.question').unwrap();
+      $('.containsWord').unwrap();
       var rawText = advancedEditor.getHTML().replace(/&nbsp;/g, ' ');
+      rawText = rawText.replace('<br>', ' ');
+      console.log(rawText);
       if(rawText.indexOf('class="question"') == -1)
       {
         var sentenceList = getSentences(rawText);
         var sentenceHTML = getSentenceHTML(sentenceList);
+        var sentenceHTML = getSentenceHTML2(sentenceList);
         advancedEditor.setHTML(sentenceHTML);
       }
       $('.question').css('color', $('#questions_color').val());
@@ -163,7 +167,7 @@ function endsWith(string, substring) {
 
 // Given a string of text, returns a list of sentences contained in the text.
 function getSentences(text) {
-    var re = /[\.?!]\s+[A-Z"#$](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
+    var re = /[\.?!]\s+[A-Z"#$(](?!\.)(?=[a-z0-9A-Z\s\W]*[\.?!])/g;
     var myArray;
     var sentenceList = [];
     var lastIndex = -1;
@@ -244,5 +248,32 @@ function getSentenceHTML(sentenceList) {
         }
         html += '<br>';
     }
+    return html;
+}
+
+// Given a list of text sentences, returns a string with each sentence in its own <div> tag.
+function getSentenceHTML2(sentenceList) {
+    var html = '';
+    while (sentenceList.length > 0) {
+        var currentSentence = sentenceList.shift();
+        var indexes = findWords(currentSentence, words);
+        html += '<div class="easymail_formatting">'
+        if (isQuestion(currentSentence)) {
+            html += '<span class="question">';
+            html += currentSentence;
+            html += '</span>';
+        } else if(indexes.length > 0){
+            indexes.sort(function(a,b){
+                return a[0] - b[0];
+            })
+            // console.log(indexes);
+            // console.log(sentenceReconstructor(currentSentence, 0, indexes))
+            html += sentenceReconstructor(currentSentence, 0, indexes);
+        } else {
+            html += currentSentence;
+        }
+        html += '</div>';
+    }
+//    console.log(html);
     return html;
 }
