@@ -97,7 +97,6 @@ $(document).ready(function(){
       {
         var sentenceList = getSentences(rawText);
         var sentenceHTML = getSentenceHTML(sentenceList);
-        var sentenceHTML = getSentenceHTML2(sentenceList);
         advancedEditor.setHTML(sentenceHTML);
       }
       $('.question').css('color', $('#questions_color').val());
