@@ -101,6 +101,18 @@ $(document).ready(function(){
       }
       $('.question').css('color', $('#questions_color').val());
       $('.containsWord').css('color', $('#findall_color').val());
+      
+      if (!($('#questions-toggle').is(':checked'))) {
+            $('.question').css('color', '');
+        } else {
+            $('.question').css('color', $('#questions_color').val());
+        }
+      
+      if (!($('#findall-toggle').is(':checked'))) {
+            $('.containsWord').css('color', '');
+        } else {
+            $('.containsWord').css('color', $('#findall_color').val());
+        }
   });
     
   $('#clear').click(function() {
